@@ -29,7 +29,7 @@ export const useStateStore = defineStore('state', () => {
   async function getFilteredCountries() {
     try {
       const response = await fetch(
-        `http://api.weatherapi.com/v1/search.json?key=${import.meta.env.VITE_WEATHER_API}&q=${searchQuery.value}`
+        `https://api.weatherapi.com/v1/search.json?key=${import.meta.env.VITE_WEATHER_API}&q=${searchQuery.value}`
       )
       const data = await response.json()
       // console.log(data)
@@ -55,7 +55,7 @@ export const useStateStore = defineStore('state', () => {
     isLoading.value = true
     try {
       const response = await fetch(
-        `http://api.weatherapi.com/v1/forecast.json?key=${import.meta.env.VITE_WEATHER_API}&q=id:${selectedCountry.value?.id}&days=3&aqi=yes&alerts=no`
+        `https://api.weatherapi.com/v1/forecast.json?key=${import.meta.env.VITE_WEATHER_API}&q=id:${selectedCountry.value?.id}&days=3&aqi=yes&alerts=no`
       )
 
       weatherData.value = await response.json()
